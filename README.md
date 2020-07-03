@@ -1,7 +1,20 @@
-# MATLAB Simulink model for upgrading to a TSC in a 3-center system
+# TSC Upgrade Model
 
-To run simulation, download all files into same directory. 
+## File Descriptions
 
-Run stochastic.m to run the stochastic simulation.
-urban_upgrade3.mat and nonurban100_upgrade3.mat is the data output from running the stochastic simulation with 1000 trials with, respectively, an interhospital distance of 10 and 100 and a service radius of 15 and 150.
-Upgrade3.slx is the Simulink model file. The rest are functions to extract and analyze data from the simulation outputs.
+- Upgrade3.slx - Simulink model file. 
+- upgradeParams.mat - parameter file for model.
+- stochastic.m - runs stochastic simulation and prints outcome metric distributions.
+
+- urban_upgrade3.mat - stochastic simulation output for 1000 trials in urban setting.
+- nonurban100_upgrade3.mat - stochastic simulation output for 1000 trials in rural setting.
+
+- CSCupgrade3.m - collects individual hospital patient and ART volume data.
+- extractData3.m - collects patient-centered outcomes such as % tPA, % EVT, and clinical outcomes.
+- Coutcomes.m - collects clinical outcomes for patient population of upgraded center.
+- randParam.m - variation of input parameters for stochastic simulation.
+- randraw.m - function I did not write to generate random numbers in given distribution.
+
+## How to Run
+
+To run simulation, download all files into same directory. Run stochastic.m to run the stochastic simulation. Edit desired trials, interhospital distance, and service radius as desired. Requires at least MATLAB R2017a and Simulink 8.9. Contact zhouminerva@gmail.com for any issues.
