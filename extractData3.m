@@ -1,7 +1,6 @@
 pt_num = length(logsout{1}.Values.NIHSS.Data)+length(logsout{2}.Values.NIHSS.Data)+length(logsout{3}.Values.NIHSS.Data);
 
 routes = {'Bypass', 'Nearest','UpgradeBypass','Upgrade_NC'};
-outcomes = zeros(1, 7);
 
 tpaTime = zeros(4,1);
 thromTime = zeros(4,1);
@@ -10,15 +9,15 @@ thromData = zeros(4,1);
 num = zeros(4,1);
 
 for i=1:4
-    firstArrival = vertcat(logsout{3*i-2}.Values.firstArrival.Data(:), logsout{3*i-1}.Values.firstArrival.Data(:), logsout{3*i}.Values.firstArrival.Data(:));
+%    firstArrival = vertcat(logsout{3*i-2}.Values.firstArrival.Data(:), logsout{3*i-1}.Values.firstArrival.Data(:), logsout{3*i}.Values.firstArrival.Data(:));
     tPA = vertcat(logsout{3*i-2}.Values.tPAtime.Data(:), logsout{3*i-1}.Values.tPAtime.Data(:), logsout{3*i}.Values.tPAtime.Data(:));
     tPA = tPA(~tPA(:)==0);
     throm = vertcat(logsout{3*i-2}.Values.thromTime.Data(:), logsout{3*i-1}.Values.thromTime.Data(:), logsout{3*i}.Values.thromTime.Data(:));
     throm = throm(~throm(:)==0);
     
     tPAlogical = sum(logsout{3*i-2}.Values.tPA.Data(:)==true)+sum(logsout{3*i-1}.Values.tPA.Data(:)==true)+sum(logsout{3*i}.Values.tPA.Data(:)==true);
-    totalPts = length(logsout{3*i-2}.Values.tPA.Data)+length(logsout{3*i-1}.Values.tPA.Data)+length(logsout{3*i}.Values.tPA.Data);
     thromLogical = sum(logsout{3*i-2}.Values.throm.Data(:)==true)+sum(logsout{3*i-1}.Values.throm.Data(:)==true)+sum(logsout{3*i}.Values.throm.Data(:)==true);
+    %Outcomes
     data = vertcat(logsout{3*i-2}.Values.outcome.Data(:), logsout{3*i-1}.Values.outcome.Data(:), logsout{3*i}.Values.outcome.Data(:));
 %     
 %     fprintf('%s\n', char(routes(i)));
