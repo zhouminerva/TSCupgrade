@@ -4,8 +4,8 @@ load_system(model)
 trials = 1000;
 
 tpaAll = zeros(4, trials);
-thromAll = zeros(6, trials);
-goodOutcome = zeros(6, trials);
+thromAll = zeros(4, trials);
+goodOutcome = zeros(4, trials);
 goodOutcomeC = zeros(4, trials);
 
 timeTPA = zeros(4, trials);
